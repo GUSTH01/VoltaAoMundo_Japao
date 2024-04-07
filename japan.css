@@ -1,15 +1,26 @@
 .nav-link{
     color: rgb(231, 79, 79);
     font-size: x-large;
-    border-style:inset;
-    border-left: none;
-    border-right: none;
-    border-radius: 0px;
-    padding: 3%;
-}
-.nav-item{
     
 }
-.divnav{
+.colnav {
+    text-align: center;
+    border-style: ridge;
+    border-color: red;
+    border-left: none;
+    border-right: none;
+
+
+
+}
+
+
+@media screen and (max-width: 676px) {
+    .colnav {
+        border-top: none;
+        border-right-style: groove;
+        border-left-style: groove;
+        border-color: red;
+    }
     
 }
