@@ -1,18 +1,86 @@
+body{
+    border: 2px solid black;
+}
+
 .nav-link{
-    color: rgb(231, 79, 79);
+    color: red;
     font-size: x-large;
+}
+.nav-link:hover{
+    color: red;
     
 }
-.colnav {
+
+.colnav {  
     text-align: center;
     border-style: ridge;
     border-color: red;
     border-left: none;
     border-right: none;
-
-
-
 }
+
+
+.panos {
+    margin: 10px;
+    height: auto; /* Define a altura da div como auto */
+    border-style: ridge;
+    border: none;
+    border-radius: 100px;
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa a área das divs */
+    padding: 20px; /* Adiciona um espaçamento interno para o texto */
+}
+
+.pan1 {
+    background-image: url("imgpanos/timo-volz-DGsqL2j028E-unsplash.jpg");
+    background-repeat: no-repeat;
+}
+
+.pan2 {
+    background-image: url(imgpanos/filtokyo.jpg);
+    background-repeat: no-repeat;
+    background-size: 200vh;
+}
+.pan3{
+    background-image: url(imgpanos/bandeira.jpg);
+    background-repeat: no-repeat;
+}
+.pan4{
+    background-image: url(imgpanos/culture.jpg) ;
+    
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 10vh;
+    margin: 0;
+    padding: 0;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Yu Gothic', sans-serif;
+    line-height: 20vh;
+    user-select: none;
+}
+
+@keyframes unfold {
+    0% {
+        height: 0; /* Inicia com altura zero */
+    }
+    100% {
+        height: 87vh; /* Termina com a altura desejada */
+    }
+}
+
+.panos {
+    animation: unfold 1s ease-out forwards; /* Aplica a animação unfold com duração de 1 segundo */
+}
+
+.panos:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
 
 
 @media screen and (max-width: 676px) {
@@ -21,6 +89,7 @@
         border-right-style: groove;
         border-left-style: groove;
         border-color: red;
+        
     }
     
 }
