@@ -35,6 +35,7 @@ footer{
 .dropitem{
     color: red;
     font-size: 20px;
+    text-align: center;
 }
 .dropitem:hover{
     color: white;
