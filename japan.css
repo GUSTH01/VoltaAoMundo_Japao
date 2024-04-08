@@ -1,14 +1,23 @@
-body{
-    border: 2px solid black;
+body,html{
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 !important;
 }
-
-.nav-link{
-    color: red;
-    font-size: x-large;
+h2{
+    margin: 0;
 }
-.nav-link:hover{
+footer{
+    margin: 0;
+}
+.btnav{                                                                  /*///////////////////Nav////////////////////*/
+    all: initial;
     color: red;
-    
+    font-size: 30px;
+    outline: none !important;
+    cursor: pointer;
+    margin: 2%;
+    user-select: none;
 }
 
 .colnav {  
@@ -19,34 +28,50 @@ body{
     border-right: none;
 }
 
+.menudrop{
+    border: 3px solid red;
+}
 
-.panos {
+.dropitem{
+    color: red;
+    font-size: 20px;
+}
+.dropitem:hover{
+    color: white;
+    background-color: red;
+}
+
+.panos {                                                                  /*//////////////////Body////////////////////*/
     margin: 10px;
-    height: auto; /* Define a altura da div como auto */
+    height: auto; 
     border-style: ridge;
     border: none;
     border-radius: 100px;
-    overflow: hidden; /* Oculta o conteúdo que ultrapassa a área das divs */
-    padding: 20px; /* Adiciona um espaçamento interno para o texto */
+    overflow: hidden; 
+    padding: 20px;
+    cursor: pointer;
 }
 
 .pan1 {
     background-image: url("imgpanos/timo-volz-DGsqL2j028E-unsplash.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .pan2 {
     background-image: url(imgpanos/filtokyo.jpg);
     background-repeat: no-repeat;
-    background-size: 200vh;
+    background-size: cover;
 }
 .pan3{
-    background-image: url(imgpanos/bandeira.jpg);
+    background-image: url(imgpanos/bandeira.png);
     background-repeat: no-repeat;
+    background-size: 100% 50%;
 }
 .pan4{
     background-image: url(imgpanos/culture.jpg) ;
-    
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .vertical-text {
@@ -62,25 +87,35 @@ body{
     line-height: 20vh;
     user-select: none;
 }
+.vertical-text:hover{
+    color: red;
+    text-decoration: none;
+}
 
-@keyframes unfold {
+.hfooter{ 
+    margin-top: 4%;
+    background-color: red;
+    text-align: center;
+    height: 50px; 
+}
+
+@keyframes unfold {                                                       /*/////////////////Animaçoes/////////////////*/
     0% {
-        height: 0; /* Inicia com altura zero */
+        height: 0; 
     }
     100% {
-        height: 87vh; /* Termina com a altura desejada */
+        height: 87vh; 
     }
 }
 
 .panos {
-    animation: unfold 1s ease-out forwards; /* Aplica a animação unfold com duração de 1 segundo */
+    animation: unfold 1s ease-out forwards; 
 }
 
 .panos:hover {
     transform: scale(1.02);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
-
 
 
 @media screen and (max-width: 676px) {
@@ -91,5 +126,11 @@ body{
         border-color: red;
         
     }
+
+.menudrop{
+    width: 100vw;
+    transform: translateX(-15px);
+    
+}
     
 }
