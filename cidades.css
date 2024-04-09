@@ -1,8 +1,12 @@
-
-.contcarou{
-    background-color: black;
+.contcard{
+    margin-top: 3%;
 }
 
-.cidade{
-    background-color: black;
+.imagcard{
+    width: 100%;
+    height: 35vh;
+}
+.card{
+
+    margin-top: 10%;
 }
