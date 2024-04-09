@@ -10,3 +10,18 @@
 
     margin-top: 10%;
 }
+.botaum{
+    background-color: black;
+    color: white;
+    width: 90%;
+    font-size: 100%;
+    opacity: 95%;
+}
+
+.botaum:hover{
+    background-color: red;
+    opacity: 100%;
+    
+    
+
+}
