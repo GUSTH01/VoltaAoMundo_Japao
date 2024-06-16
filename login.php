@@ -28,16 +28,20 @@ if ($linha['permissao'] == 'adm') {
 	} else {
 		session_start();
 		$_SESSION['usuario_logado'] = $usuario_logado;
-		header('Location: painel.html');
+		$_SESSION['usuario_email'] = $email;
+		header('Location: indexadm.php');
 	}
 } else {
 	if ($usuario_logado == null) {
 		// Usuário ou senha inválida
-		echo "Usuario não cadastrados";
+		echo "<script> alert ('Usuario não cadastrado !') 
+		 window.location.href = 'login.html'; </script>" ;
+		
 	} else {
 		session_start();
 		$_SESSION['usuario_logado'] = $usuario_logado;
-		header('Location: index.html');
+		$_SESSION['usuario_email'] = $email;
+		header('Location: indexnormal.php');
         
 	}
 }
