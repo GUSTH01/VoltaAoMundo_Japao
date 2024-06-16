@@ -61,23 +61,23 @@
         </li>
       </ul>
 
-      <div class="contpanos container-fluid">
-        <div class="row p-1">
-            <div class="panos pan1 col-md">
-                <a href="cidades.html" class="vertical-text">都市 _ Toshi</a><!--cidade-->
-            </div>
-            <div class="panos pan2 col-md">
-                <a href="filmes.html" class="vertical-text">映画 _ Eiga</a><!--Filmes-->
-            </div>
-            <div class="panos pan3 col-md">
-                <a href="sobre.html" class="vertical-text">について _ Nitsuite</a><!--Sobre-->
-            </div>
-            <div class="panos pan4 col-md">
-                <a href="cultura.html" class="vertical-text">文化 _ Bunka</a><!--Cultura-->
-            </div>
+      <div class="login-container">
+        <h2>Login</h2>
+      <form action="login.php" method="post">
+        <div class="mb-3">
+            <label for="inputUsuario" class="form-label">Digite seu Usuário</label>
+            <input type="text" class="form-control" id="inputUsuario" name="usuario" required>
         </div>
-    </div>
-
+        <div class="mb-3">
+            <label for="inputUsuario" class="form-label">Digite seu E-mail</label>
+            <input type="text" class="form-control" id="inputemail" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="inputSenha" class="form-label">Digite sua Senha</label>
+            <input type="password" class="form-control" id="inputSenha" name="senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">ENTRAR</button>
+    </form>
 </div>
 
  <footer>
