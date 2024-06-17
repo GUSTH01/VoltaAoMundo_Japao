@@ -260,6 +260,7 @@ $linha = $resultado->fetch();
           </div>
       </div>
   </div>
+
     
   <footer>
     <h2 class="hfooter">JAPÃO - GUSTAVO</h2>

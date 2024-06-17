@@ -194,7 +194,7 @@ $linha = $resultado->fetch();
 
 </div>
 
- <footer>
+<footer>
     <h2 class="hfooter">JAPÃO - GUSTAVO</h2>
  </footer>
 

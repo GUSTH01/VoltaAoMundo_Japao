@@ -39,7 +39,7 @@ if($linha['permissao'] != 'adm'){
 </head>
 <body>
     
-    <div class="container-fluid">
+    <div class="container-fluid ">
     <ul class="row nav">
       <li class="colnav col-sm nav-link">
         <div class="dropdown">
@@ -233,6 +233,7 @@ if($linha['permissao'] != 'adm'){
             }
             ?>
         </div>
+    </div>
     </div>
 
 
