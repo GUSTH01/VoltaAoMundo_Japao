@@ -219,16 +219,18 @@ if($linha['permissao'] != 'adm'){
                 echo "<div class='col-md-12 mt-3'>";
                 echo "<h5>{$comentario['nome']}</h5>";
                 echo "<p>{$comentario['comentario']}</p>";
-                echo "<form method='post'>";
+                echo "<div class='d-inline-block'>";
+                echo "<form method='post' class='d-inline mr-2'>";
                 echo "<input type='hidden' name='id_comentario' value='{$comentario['id']}'>";
                 echo "<input type='hidden' name='acao' value='enviar'>";
-                echo "<button type='submit' class='btn btn-success mr-2'>Enviar</button>";
+                echo "<button type='submit' class='btn btn-success'>Enviar</button>";
                 echo "</form>";
-                echo "<form method='post'>";
+                echo "<form method='post' class='d-inline'>";
                 echo "<input type='hidden' name='id_comentario' value='{$comentario['id']}'>";
                 echo "<input type='hidden' name='acao' value='excluir'>";
                 echo "<button type='submit' class='btn btn-danger'>Excluir</button>";
                 echo "</form>";
+                echo "</div>";
                 echo "</div>";
             }
             ?>
