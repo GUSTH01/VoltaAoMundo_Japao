@@ -137,6 +137,7 @@ if ($email) {
                 echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
                 echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
                 echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                echo "<a class='dropdown-item dropitem' href='importar.php'>importar</a>";
                 echo "<a class='dropdown-item dropitem' href='painel.php'>Painel</a>";
                 echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
             }else if ($linha['permissao'] != 'adm'){
