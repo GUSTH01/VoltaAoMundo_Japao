@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario_email'])) {
+    header('Location: index.html');
+    exit();
+}
+
+$sql = "SELECT permissao FROM tb_usuarios WHERE email = :email";
+include_once "classes/conexao.php";
+
+$email = $_SESSION['usuario_email'];
+
+$resultado = $conexao->prepare($sql);
+$resultado->bindParam(':email', $email);
+$linha = $resultado->execute();
+
+$linha = $resultado->fetch();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,57 +30,135 @@
 </head>
 <body >
     
-  <div class="container-fluid">
-    <ul class=" row nav">
-      <li class="colnav col-sm nav-link ">
+<div class="container-fluid">
+    <ul class="row nav">
+      <li class="colnav col-sm nav-link">
         <div class="dropdown">
           <button class="btnav" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Cidades 
           </button>
           <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item dropitem" href="index.html">HOME</a>
-            <a class="dropdown-item dropitem" href="#">Tokyo</a>
-            <a class="dropdown-item dropitem" href="#">Filmes</a>
-            <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
+          <?php if ($linha['permissao'] == 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }else if ($linha['permissao'] != 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }else{
+                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }   
+            ?>   
           </div>
         </div>
       </li>
-        <li class="colnav col-sm nav-link ">
+        <li class="colnav col-sm nav-link">
           <div class="dropdown">
-            <button class="btnav " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btnav" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Midia
             </button>
-            <div class="dropdown-menu menudrop " aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item dropitem" href="index.html">HOME</a>
-              <a class="dropdown-item dropitem" href="#">Alguma ação</a>
-              <a class="dropdown-item dropitem" href="#">Filmes</a>
-              <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
+            <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
+            <?php if ($linha['permissao'] == 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }else if ($linha['permissao'] != 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }else{
+                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }   
+            ?>  
             </div>
           </div>
         </li>
-        <li class="colnav col-sm  nav-link">
+        <li class="colnav col-sm nav-link">
           <div class="dropdown">
             <button class="btnav" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Sobre
             </button>
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item dropitem" href="index.html">HOME</a>
-              <a class="dropdown-item dropitem" href="#">Alguma ação</a>
-              <a class="dropdown-item dropitem" href="#">Filmes</a>
-              <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
+            <?php if ($linha['permissao'] == 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }else if ($linha['permissao'] != 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }else{
+                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+
+            }   
+            ?>  
             </div>
           </div>
         </li>
-        <li class="colnav col-sm nav-link ">
+        <li class="colnav col-sm nav-link">
           <div class="dropdown">
             <button class="btnav" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Cultura
+            Login
             </button>
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item dropitem" href="index.html">HOME</a>
-              <a class="dropdown-item dropitem" href="#">Alguma ação</a>
-              <a class="dropdown-item dropitem" href="#">Filmes</a>
-              <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
+            <?php if ($linha['permissao'] == 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
+                echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
+                echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
+                echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                echo "<a class='dropdown-item dropitem' href='painel.php'>Painel</a>";
+                echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
+            }else if ($linha['permissao'] != 'adm'){
+                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
+                echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
+                echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
+                echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
+            }else{
+                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
+                echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
+                echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
+                echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
+
+            }   
+            ?>   
             </div>
           </div>
         </li>

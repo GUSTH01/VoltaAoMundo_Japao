@@ -29,11 +29,11 @@ try {
 
     echo "<script type='text/javascript'>
             alert('Registro gravado com sucesso !!! Faça Login agora.');
-            window.location.href = 'login.html'; // Redireciona para a página de cadastro
+            window.location.href = 'login.html'; 
           </script>";
   }
 } catch (Exception $erro) {
   echo $erro->getMessage();
-  // echo "Ocorreu um erro";
+
 }
 ?>

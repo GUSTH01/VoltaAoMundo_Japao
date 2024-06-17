@@ -1,32 +1,18 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario_email'])) {
-    echo "<script>alert ('Você não é um administrador')
-    window.location.href = 'index.html'; </script>";
-    exit();
-}
-
-
-$sql = "SELECT permissao FROM tb_usuarios WHERE email = :email";
 include_once "classes/conexao.php";
 
-$email = $_SESSION['usuario_email'];
+$email = isset($_SESSION['usuario_email']) ? $_SESSION['usuario_email'] : null;
+$linha = null;
 
-$resultado = $conexao->prepare($sql);
-$resultado->bindParam(':email', $email);
-$linha = $resultado->execute();
-
-$linha = $resultado->fetch();
-
-if($linha['permissao'] != 'adm'){
-    echo "<script>alert ('Você não é um administrador ')
-    window.location.href = 'indexnormal.php'; </script>";
-} else if($linha['permissao'] == ''){
-    echo "<script>alert ('Você não é um administrador ')
-    window.location.href = 'indexnormal.php'; </script>";
+if ($email) {
+    $sql = "SELECT permissao FROM tb_usuarios WHERE email = :email";
+    $resultado = $conexao->prepare($sql);
+    $resultado->bindParam(':email', $email);
+    $resultado->execute();
+    $linha = $resultado->fetch(PDO::FETCH_ASSOC);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,9 +23,9 @@ if($linha['permissao'] != 'adm'){
     <link rel="stylesheet" href="japan.css">
     <title>Japão index</title>
 </head>
-<body>
+<body >
     
-    <div class="container-fluid">
+<div class="container-fluid">
     <ul class="row nav">
       <li class="colnav col-sm nav-link">
         <div class="dropdown">
@@ -150,6 +136,7 @@ if($linha['permissao'] != 'adm'){
                 echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
                 echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
                 echo "<a class='dropdown-item dropitem' href='painel.php'>Painel</a>";
+                echo "<a class='dropdown-item dropitem' href='Importar.php'>Importar</a>";
                 echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
             }else if ($linha['permissao'] != 'adm'){
                 echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
@@ -173,71 +160,17 @@ if($linha['permissao'] != 'adm'){
         </li>
       </ul>
 
-      <div class="container mt-5">
-        <h2>Comentários Pendentes</h2>
-        <div class="row">
-            <?php
+      <form action="classes/comentarios.php" method="post" enctype="multipart/form-data">
+        <label for="jsonFile">Selecione o arquivo JSON:</label><br>
+        <input type="file" id="jsonFile" name="jsonFile"><br><br>
+        <button type="submit">Enviar Arquivo</button>
+    </form>
 
-            function ativarComentario($id, $conexao) {
-                $sql = "UPDATE tb_comentarios SET stts = 'ativado' WHERE id = :id";
-                $stmt = $conexao->prepare($sql);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
-            }
+</div>
 
-            function excluirComentario($id, $conexao) {
-                $sql = "DELETE FROM tb_comentarios WHERE id = :id";
-                $stmt = $conexao->prepare($sql);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
-            }
-
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                if (isset($_POST['acao']) && isset($_POST['id_comentario'])) {
-                    $id_comentario = $_POST['id_comentario'];
-                    $acao = $_POST['acao'];
-                    
-                    if ($acao == 'enviar') {
-                        ativarComentario($id_comentario, $conexao);
-                    } 
-
-                    elseif ($acao == 'excluir') {
-                        excluirComentario($id_comentario, $conexao);
-                    }
-                }
-            }
-
-            // Consulta SQL para selecionar os comentários ativos
-            $sql = "SELECT id, nome, comentario FROM tb_comentarios WHERE stts = 'desativado'";
-            $stmt = $conexao->prepare($sql);
-            $stmt->execute();
-            $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            // Exibição dos comentários na página
-            foreach ($comentarios as $comentario) {
-                echo "<div class='col-md-12 mt-3'>";
-                echo "<h5>{$comentario['nome']}</h5>";
-                echo "<p>{$comentario['comentario']}</p>";
-                echo "<form method='post'>";
-                echo "<input type='hidden' name='id_comentario' value='{$comentario['id']}'>";
-                echo "<input type='hidden' name='acao' value='enviar'>";
-                echo "<button type='submit' class='btn btn-success mr-2'>Enviar</button>";
-                echo "</form>";
-                echo "<form method='post'>";
-                echo "<input type='hidden' name='id_comentario' value='{$comentario['id']}'>";
-                echo "<input type='hidden' name='acao' value='excluir'>";
-                echo "<button type='submit' class='btn btn-danger'>Excluir</button>";
-                echo "</form>";
-                echo "</div>";
-            }
-            ?>
-        </div>
-    </div>
-
-
-      <footer>
-        <h2 class="hfooter">JAPÃO - GUSTAVO</h2>
-        </footer>
+ <footer>
+    <h2 class="hfooter">JAPÃO - GUSTAVO</h2>
+ </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -245,4 +178,3 @@ if($linha['permissao'] != 'adm'){
     
 </body>
 </html>
-      
