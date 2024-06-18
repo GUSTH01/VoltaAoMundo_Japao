@@ -21,6 +21,7 @@ if ($email) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="japan.css">
+    <link rel="stylesheet" href="form.css">
     <title>Japão index</title>
 </head>
 <body >
@@ -48,7 +49,7 @@ if ($email) {
                 echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
 
             }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
                 echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
                 echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
                 echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
@@ -80,7 +81,7 @@ if ($email) {
                 echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
 
             }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
                 echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
                 echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
                 echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
@@ -112,7 +113,7 @@ if ($email) {
                 echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
 
             }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
                 echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
                 echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
                 echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
@@ -146,7 +147,7 @@ if ($email) {
                 echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
                 echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
             }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
+                echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
                 echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
                 echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
                 echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
@@ -160,12 +161,15 @@ if ($email) {
         </li>
       </ul>
 
+      <div class="divlogin container-fluid">
+        <div class="login-container">
       <form action="classes/comentarios.php" method="post" enctype="multipart/form-data">
-        <label for="jsonFile">Selecione o arquivo JSON:</label><br>
+        <label for="jsonFile"><h2>Selecione o arquivo JSON:</h2></label><br>
         <input type="file" id="jsonFile" name="jsonFile"><br><br>
         <button type="submit">Enviar Arquivo</button>
     </form>
-
+</div>
+</div>
 </div>
 
 <footer>

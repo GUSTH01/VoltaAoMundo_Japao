@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="japan.css">
+    <link rel="stylesheet" href="form.css">
+
     <title>Japão index</title>
 </head>
 <body >
@@ -17,9 +19,10 @@
           Cidades 
           </button>
           <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item dropitem" href="#">Tokyo</a>
-            <a class="dropdown-item dropitem" href="#">Filmes</a>
-            <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
+            <a class="dropdown-item dropitem" href="cidades.php">Cidades</a>
+              <a class="dropdown-item dropitem" href="filmes.php">Filmes</a>
+              <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
+              <a class="dropdown-item dropitem" href="cultura.php">Cultura</a>
           </div>
         </div>
       </li>
@@ -29,9 +32,10 @@
             Midia
             </button>
             <div class="dropdown-menu menudrop " aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item dropitem" href="#">Filmes</a>
+              <a class="dropdown-item dropitem" href="cidades.php">Cidades</a>
+              <a class="dropdown-item dropitem" href="filmes.php">Filmes</a>
               <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
-              <a class="dropdown-item dropitem" href="#">Cultura</a>
+              <a class="dropdown-item dropitem" href="cultura.php">Cultura</a>
             </div>
           </div>
         </li>
@@ -41,9 +45,10 @@
             Sobre
             </button>
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item dropitem" href="#">Filmes</a>
+              <a class="dropdown-item dropitem" href="cidades.php">Cidades</a>
+              <a class="dropdown-item dropitem" href="filmes.php">Filmes</a>
               <a class="dropdown-item dropitem" href="sobre.html">Sobre</a>
-              <a class="dropdown-item dropitem" href="#">Cultura</a>
+              <a class="dropdown-item dropitem" href="cultura.php">Cultura</a>
             </div>
           </div>
         </li>
@@ -64,25 +69,28 @@
         </li>
       </ul>
 
-      <div class="login-container container-fluid">
-        <h2>Login</h2>
-      <form action="login.php" method="post">
-        <div class="mb-3">
-            <label for="inputUsuario" class="form-label">Digite seu Usuário</label>
-            <input type="text" class="form-control" id="inputUsuario" name="usuario" required>
+      <div class="divlogin container-fluid">
+        <div class="login-container">
+            <h2 class="title text-center mb-4">Login</h2>
+            <form action="login.php" method="post">
+                <div class="form-group">
+                    <label for="inputUsuario">Digite seu Usuário</label>
+                    <input type="text" class="form-control" id="inputUsuario" name="usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Digite seu E-mail</label>
+                    <input type="email" type="email" class="form-control" id="inputEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Digite sua Senha</label>
+                    <input type="password" class="form-control" id="inputSenha" name="senha" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">ENTRAR</button>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="inputUsuario" class="form-label">Digite seu E-mail</label>
-            <input type="text" class="form-control" id="inputemail" name="email" required>
-        </div>
-        <div class="mb-3">
-            <label for="inputSenha" class="form-label">Digite sua Senha</label>
-            <input type="password" class="form-control" id="inputSenha" name="senha" required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">ENTRAR</button>
-    </form>
-</div>
-</div>
+    </div>
+    </div>
+
  <footer>
     <h2 class="hfooter">JAPÃO - GUSTAVO</h2>
  </footer>

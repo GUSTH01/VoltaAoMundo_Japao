@@ -94,11 +94,16 @@ footer{
 }
 
 .hfooter{ 
-    margin-top: 4%;
+    position: relative;
+    margin-top: 10%;
     background-color: red;
     text-align: center;
     height: 50px; 
     
+}
+
+.footpainel{
+    margin-top: 50%;
 }
 
 

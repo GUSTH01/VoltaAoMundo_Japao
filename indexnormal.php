@@ -35,29 +35,29 @@ if ($email) {
           Cidades 
           </button>
           <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-          <?php if ($linha['permissao'] == 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }else if ($linha['permissao'] != 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }   
-            ?>   
+          <?php
+                    if ($linha && isset($linha['permissao'])) {
+                        if ($linha['permissao'] == 'adm') {
+                            echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                            echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                            echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                            echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                        } else {
+                            echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                            echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                            echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                            echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                        }
+                    } else {
+                        echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
+                        echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                        echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                        echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                        echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                    }
+                    ?> 
           </div>
         </div>
       </li>
@@ -67,29 +67,29 @@ if ($email) {
             Midia
             </button>
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-            <?php if ($linha['permissao'] == 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }else if ($linha['permissao'] != 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }   
-            ?>  
+            <?php
+                    if ($linha && isset($linha['permissao'])) {
+                        if ($linha['permissao'] == 'adm') {
+                            echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                            echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                            echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                            echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                        } else {
+                            echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                            echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                            echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                            echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                        }
+                    } else {
+                        echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
+                        echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                        echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                        echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                        echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                    }
+                    ?>  
             </div>
           </div>
         </li>
@@ -99,29 +99,28 @@ if ($email) {
             Sobre
             </button>
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-            <?php if ($linha['permissao'] == 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }else if ($linha['permissao'] != 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
-                echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
-                echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
-                echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
-
-            }   
-            ?>  
+            <?php if ($linha && isset($linha['permissao'])) {
+                        if ($linha['permissao'] == 'adm') {
+                            echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                            echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                            echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                            echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                        } else {
+                            echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                            echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                            echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                            echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                        }
+                    } else {
+                        echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
+                        echo "<a class='dropdown-item dropitem' href='filmes.php'>Filmes</a>";
+                        echo "<a class='dropdown-item dropitem' href='cultura.php'>Cultura</a>";
+                        echo "<a class='dropdown-item dropitem' href='cidades.php'>Cidades</a>";
+                        echo "<a class='dropdown-item dropitem' href='sobre.php'>Sobre</a>";
+                    }
+                    ?>  
             </div>
           </div>
         </li>
@@ -131,32 +130,33 @@ if ($email) {
             Login
             </button>
             <div class="dropdown-menu menudrop" aria-labelledby="dropdownMenuButton">
-            <?php if ($linha['permissao'] == 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
-                echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
-                echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
-                echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
-                echo "<a class='dropdown-item dropitem' href='importar.php'>importar</a>";
-                echo "<a class='dropdown-item dropitem' href='painel.php'>Painel</a>";
-                echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
-            }else if ($linha['permissao'] != 'adm'){
-                echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
-                echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
-                echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
-                echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
-                echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
-            }else{
-                echo "<a class='dropdown-item dropitem' href='index.php'>Home</a>";
-                echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
-                echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
-                echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
-                echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
-                echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
-
-            }   
-            ?>   
+            <?php  if ($linha && isset($linha['permissao'])) {
+                        if ($linha['permissao'] == 'adm') {
+                            echo "<a class='dropdown-item dropitem' href='indexadm.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
+                            echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
+                            echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
+                            echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                            echo "<a class='dropdown-item dropitem' href='importar.php'>importar</a>";
+                            echo "<a class='dropdown-item dropitem' href='painel.php'>Painel</a>";
+                            echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
+                        } else {
+                            echo "<a class='dropdown-item dropitem' href='indexnormal.php'>Home</a>";
+                            echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
+                            echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
+                            echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
+                            echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                            echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
+                        }
+                    } else {
+                        echo "<a class='dropdown-item dropitem' href='index.html'>Home</a>";
+                        echo "<a class='dropdown-item dropitem' href='login.html'>Login</a>";
+                        echo "<a class='dropdown-item dropitem' href='cadastrar.html'>Cadastrar</a>";
+                        echo "<a class='dropdown-item dropitem' href='comentarios.html'>Comentar</a>";
+                        echo "<a class='dropdown-item dropitem' href='comentarios-listar.php'>Comentarios</a>";
+                        echo "<a class='dropdown-item dropitem' href='logout.php'>Logout</a>";
+                    }
+                    ?>
             </div>
           </div>
         </li>
